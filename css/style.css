@@ -1,0 +1,39 @@
+.bg-dark-green {
+  background-color: #687259 !important;
+}
+.bg-light {
+  background-color: #E6CEBC !important;
+}
+.bg-ligth-green {
+  background-color: #A2A182 !important;
+}
+.bg-orange {
+  background-color: #BA6F4D !important;
+}
+.bg-section {
+  background-color: #eff7fa;
+}
+.navbar-brand h1 {
+  color: #E6CEBC;
+  font-family: 'Playball', cursive;
+}
+
+/* Start Weather */
+/* .landing{
+        min-height: calc(100vh - 72px);
+    } */
+.card-weather{
+
+  border: 2px solid #BA6F4D;
+}
+.row-time{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+/* .btn {
+  border-left: 1px solid #E6CEBC;
+}
+.btn svg {
+  color: #E6CEBC;
+} */
+/* End Weather*/
