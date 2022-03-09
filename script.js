@@ -73,3 +73,8 @@ let weather = {
   weather.fetchWeather("Riyadh");
 
   // End Weather 
+
+  // Start News
+  const NewsKey = '2e17dffe5e274272a9cd25a881f7ce29'
+
+  let NewsApi = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey=2e17dffe5e274272a9cd25a881f7ce29';
