@@ -50,7 +50,7 @@
     <h2 class="city">Weather in Riyadh</h2>
     <h1 class="temp"> &#176;C</h1>
     <div class="flex">
-      <img src="https://openweathermap.org/img/wn/04n@x2.png" alt="" class="icon" />
+      <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="" class="icon" />
       <div class="description"></div>
     </div>
     <div class="humidity">Humidity: </div>
@@ -65,37 +65,51 @@
 <div class="main bg-ligth-green">
   <nav class="navbar navbar-expand navbar-dark bg-ligth-green">
     <div class="container p-3">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav fs-5 justify-content-evenly">
+      <div class="collapse navbar-collapse" id="navbarNews">
+        <ul class="navbar-nav fs-5 justify-content-evenly" id= "items">
           <li class="nav-item ps-3">
-            <a class="nav-link active" aria-current="page" href="#">General</a>
+            <a class="nav-link active" aria-current="page" href="#" id= "general">general</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Business</a>
+            <a class="nav-link" href="#" id= "business">business</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Science</a>
+            <a class="nav-link" href="#" id= "entertainmant">entertainmant</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Sports</a>
+            <a class="nav-link" href="#" id = "health">health</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Entertainmant</a>
+            <a class="nav-link" href="#" id= "technology">technology</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Health</a>
+            <a class="nav-link" href="#" id= "science">science</a>
           </li>
           <li class="nav-item ps-3">
-            <a class="nav-link" href="#">Technology</a>
+            <a class="nav-link" href="#" id= "sports">sports</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- End Navbar News -->
-  <div class="container">
+  <div class="container" id="container">
+    <div class="col-md-6 bg-section">
+      <div class="row g-1 rounded-3 overflow-hidden">
+        <div class="col d-flex flex-column">
+          <h6 class="author">written by</h6>
+          <h2 class="title">Title News</h2>
+          <div class="pushed">Mar 20</div>
+          <p class="description">This is the description for news</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
 
-    
+        <div class="col-auto ">
+
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
   </div>
 
 </div>

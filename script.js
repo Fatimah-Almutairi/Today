@@ -73,8 +73,72 @@ let weather = {
   weather.fetchWeather("Riyadh");
 
   // End Weather 
+  
+  // --------------------------------------------------
 
   // Start News
   const NewsKey = '2e17dffe5e274272a9cd25a881f7ce29'
 
-  let NewsApi = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey=2e17dffe5e274272a9cd25a881f7ce29';
+  let category = "general"
+
+  let NewsApi = `https://newsapi.org/v2/top-headlines?apiKey=${NewsKey}&category=${category}`
+
+
+  let items= document.querySelectorAll("#items a");
+  for(let item of items){
+    item.addEventListener("click", (event)=>{
+      category = event.target.id;
+      NewsApi= `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${NewsKey}`
+      // search_News();
+    })
+  }
+
+
+  let News={
+    NewsKey: "2e17dffe5e274272a9cd25a881f7ce29",
+
+    fetchNews: function(){
+      fetch(NewsApi)
+      .then((res) =>  res.json())
+      .then(data => {
+        console.log(data.articles)
+        document.getElementById("container").innerHTML= data.articles.map(container => 
+          `
+          <div class="col-md-6 bg-section">
+          <div class="row g-1 rounded-3 overflow-hidden">
+            <div class="col d-flex flex-column">
+              <h6 class="author">${container.author}</h6>
+              <h2 class="title">${container.title}</h2>
+              <div class="pushed">${container.publishedAt}</div>
+              <p class="description">${container.description}</p>
+              <a href="#" class="read-more">${container.url}</a>
+            </div>
+    
+            <div class="col-auto ">
+            <img src="${container.urlToImage}" class="img-thumbnail" alt="...">
+            </div>
+          </div>
+        </div>
+          `).json('')
+      });
+      
+    },
+
+    search_News: function () {
+      this.fetchNews(document.querySelector(".search-btn").value);
+    },
+
+  }
+
+
+
+      // displayNews: function(data){
+    //   const { title }= data;
+    //   const { author, description, url, publishedAt}= data;
+    //   document.querySelector(".author").innerText = author;
+    //   document.querySelector(".title").innerText = title;
+    //   document.querySelector(".").innerText = description;
+    //   document.querySelector(".").innerText = url;
+    //   document.querySelector(".").innerText = publishedAt;
+
+    // }
