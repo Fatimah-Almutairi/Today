@@ -81,14 +81,14 @@ let weather = {
 
   let cat = "general"
 
-  let NewsApi = `https://newsapi.org/v2/top-headlines?apiKey=${NewsKey}&category=${cat}`
+  let NewsApi = `https://newsapi.org/v2/top-headlines?country=sa&apiKey=${NewsKey}&category=${cat}`
 
 
   let items= document.querySelectorAll("#items a");
   for(let item of items){
     item.addEventListener("click", (event)=>{
       cat = event.target.id;
-      NewsApi= `https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${NewsKey}`
+      NewsApi= `https://newsapi.org/v2/top-headlines?country=sa&category=${cat}&apiKey=${NewsKey}`
       fetchNews()
 
       // search_News();
@@ -102,18 +102,18 @@ let weather = {
         console.log(data.articles)
         document.getElementById("news").innerHTML= data.articles.map(news => 
           `
-          <div class="col-md-6 bg-section">
+          <div class="col-md-6">
           <div class="row g-1 rounded-3 overflow-hidden">
             <div class="col d-flex flex-column">
               <h6 class="author">${news.author}</h6>
               <h2 class="title">${news.title}</h2>
               <div class="pushed">${news.publishedAt}</div>
               <p class="description">${news.description}</p>
-              <a href="#" class="read-more">${news.url}</a>
+              <a href="${news.url}" class="read-more">Read More</a>
             </div>
     
             <div class="col-auto ">
-            <img src="${news.urlToImage}" class="img-thumbnail" alt="...">
+            <img src="${news.urlToImage}" class="rounded mx-auto d-block" style="height:400px" "width: 400px;" alt="...">
             </div>
           </div>
         </div>
