@@ -79,66 +79,85 @@ let weather = {
   // Start News
   const NewsKey = '2e17dffe5e274272a9cd25a881f7ce29'
 
-  let category = "general"
+  let cat = "general"
 
-  let NewsApi = `https://newsapi.org/v2/top-headlines?apiKey=${NewsKey}&category=${category}`
+  let NewsApi = `https://newsapi.org/v2/top-headlines?apiKey=${NewsKey}&category=${cat}`
 
 
   let items= document.querySelectorAll("#items a");
   for(let item of items){
     item.addEventListener("click", (event)=>{
-      category = event.target.id;
-      NewsApi= `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${NewsKey}`
+      cat = event.target.id;
+      NewsApi= `https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${NewsKey}`
+      fetchNews()
+
       // search_News();
     })
   }
 
-
-  let News={
-    NewsKey: "2e17dffe5e274272a9cd25a881f7ce29",
-
-    fetchNews: function(){
-      fetch(NewsApi)
+  function fetchNews(){
+    fetch(NewsApi)
       .then((res) =>  res.json())
       .then(data => {
         console.log(data.articles)
-        document.getElementById("container").innerHTML= data.articles.map(container => 
+        document.getElementById("news").innerHTML= data.articles.map(news => 
           `
           <div class="col-md-6 bg-section">
           <div class="row g-1 rounded-3 overflow-hidden">
             <div class="col d-flex flex-column">
-              <h6 class="author">${container.author}</h6>
-              <h2 class="title">${container.title}</h2>
-              <div class="pushed">${container.publishedAt}</div>
-              <p class="description">${container.description}</p>
-              <a href="#" class="read-more">${container.url}</a>
+              <h6 class="author">${news.author}</h6>
+              <h2 class="title">${news.title}</h2>
+              <div class="pushed">${news.publishedAt}</div>
+              <p class="description">${news.description}</p>
+              <a href="#" class="read-more">${news.url}</a>
             </div>
     
             <div class="col-auto ">
-            <img src="${container.urlToImage}" class="img-thumbnail" alt="...">
+            <img src="${news.urlToImage}" class="img-thumbnail" alt="...">
             </div>
           </div>
         </div>
-          `).json('')
-      });
-      
-    },
-
-    search_News: function () {
-      this.fetchNews(document.querySelector(".search-btn").value);
-    },
-
+          `).join('')
+        })
   }
 
+// ---------
+  // let News={
+  //   NewsKey: "2e17dffe5e274272a9cd25a881f7ce29",
+  //   NewsApi: `https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${NewsKey}`,
 
+  //   fetchNews: function(){
+  //     fetch(NewsApi)
+  //     .then((res) =>  res.json())
+  //     .then(data => {
+  //       console.log(data.articles)
+  //       document.getElementById("news").innerHTML= data.articles.map(news => 
+  //         `
+  //         <div class="col-md-6 bg-section">
+  //         <div class="row g-1 rounded-3 overflow-hidden">
+  //           <div class="col d-flex flex-column">
+  //             <h6 class="author">${news.author}</h6>
+  //             <h2 class="title">${news.title}</h2>
+  //             <div class="pushed">${news.publishedAt}</div>
+  //             <p class="description">${news.description}</p>
+  //             <a href="#" class="read-more">${news.url}</a>
+  //           </div>
+    
+  //           <div class="col-auto ">
+  //           <img src="${news.urlToImage}" class="img-thumbnail" alt="...">
+  //           </div>
+  //         </div>
+  //       </div>
+  //         `).json('')
+  //     });
+      
+  //   },
 
-      // displayNews: function(data){
-    //   const { title }= data;
-    //   const { author, description, url, publishedAt}= data;
-    //   document.querySelector(".author").innerText = author;
-    //   document.querySelector(".title").innerText = title;
-    //   document.querySelector(".").innerText = description;
-    //   document.querySelector(".").innerText = url;
-    //   document.querySelector(".").innerText = publishedAt;
+  //   search_News: function () {
+  //     this.fetchNews(document.querySelector(".search-btn").value);
+  //   },
 
-    // }
+  // }
+
+fetchNews();
+
