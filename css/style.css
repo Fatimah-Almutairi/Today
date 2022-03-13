@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 .bg-dark-green {
   background-color: #687259 !important;
 }
@@ -19,9 +22,7 @@
 }
 
 /* Start Weather */
-/* .landing{
-        min-height: calc(100vh - 72px);
-    } */
+
 .card-weather{
 
   border: 2px solid #BA6F4D;
@@ -43,6 +44,7 @@
 #top-btn {
   display: none;
   position: fixed;
+  /* justify-content: right; */
   bottom: 2%;
   right: 2%;
   z-index: 999;
@@ -57,16 +59,15 @@
 }
 
 #top-btn:hover {
-  background-color: #26316a;
+  background-color: #687259;
 }
-/* .col-md-6{
-  border: 2px solid #d6d6d6;
-
-} */
-/* .btn {
-  border-left: 1px solid #E6CEBC;
+.slider-controls i{
+  background-color: #687259;
+  font-size: 25px;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  margin: 2px;
 }
-.btn svg {
-  color: #E6CEBC;
-} */
-/* End Weather*/

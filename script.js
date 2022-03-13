@@ -29,10 +29,10 @@ let weather = {
           this.API_KEY
       )
         .then((response) => {
-        //   if (!response.ok) {
-        //     alert("No weather found.");
-        //     throw new Error("No weather found.");
-        //   }
+          if (!response.ok) {
+            alert("No weather found.");
+            throw new Error("No weather found.");
+          }
           return response.json();
         })
         .then((data) => this.displayWeather(data));
@@ -160,6 +160,25 @@ function topBtn() {
       }
     });
   
+var prev = document.getElementById('prev');
+var next = document.getElementById('next');
 
+document.querySelector("#prev").addEventListener("click", function(){
+  if(page == 1){
+    Prev.disabled = true;
+  }
+  page--;
+  NewsApi= `https://newsapi.org/v2/top-headlines?country=sa&category=${cat}&apiKey=${NewsKey}&page=${page}`
+  fetchNews()
+});
+document.querySelector("#next").addEventListener("click", function(){
+  if(page == 5){
+    next.disabled = true;
+  }
+  page++;
+  NewsApi= `https://newsapi.org/v2/top-headlines?country=sa&category=${cat}&apiKey=${NewsKey}&page=${page}`
+  fetchNews()
+});
 fetchNews();
+
 
