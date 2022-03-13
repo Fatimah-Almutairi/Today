@@ -74,6 +74,28 @@ let weather = {
 
   // End Weather 
   
+
+  let btn = document.getElementById("top-btn");
+
+window.onscroll = function() {
+    myScroll();
+};
+
+function myScroll() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+
+function topBtn() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+
+
   // --------------------------------------------------
 
   // Start News

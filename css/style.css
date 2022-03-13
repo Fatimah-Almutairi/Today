@@ -39,6 +39,26 @@
   color: #BA6F4D;
 
 }
+
+#top-btn {
+  display: none;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  z-index: 999;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background-color: #BA6F4D;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#top-btn:hover {
+  background-color: #26316a;
+}
 /* .col-md-6{
   border: 2px solid #d6d6d6;
 
