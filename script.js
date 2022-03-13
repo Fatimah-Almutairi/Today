@@ -103,17 +103,19 @@ let weather = {
         document.getElementById("news").innerHTML= data.articles.map(news => 
           `
           <div class="col-md-6">
-          <div class="row g-1 rounded-3 overflow-hidden">
-            <div class="col d-flex flex-column">
-              <h6 class="author">${news.author}</h6>
+          <div class="row g-1 rounded-3 overflow-hidden pt-4">
+            <div class="col d-flex flex-column pt-2">
               <h2 class="title">${news.title}</h2>
               <div class="pushed">${news.publishedAt}</div>
-              <p class="description">${news.description}</p>
+              <p class="description mt-3">${news.description}</p>
+              <h6 class="author">${news.author}</h6>
+
               <a href="${news.url}" class="read-more">Read More</a>
+              
             </div>
     
             <div class="col-auto ">
-            <img src="${news.urlToImage}" class="rounded mx-auto d-block" style="height:400px" "width: 400px;" alt="...">
+            <img src="${news.urlToImage}" class="mx-auto d-block" style="height:400px" "width: 400px;" alt="...">
             </div>
           </div>
         </div>
@@ -121,43 +123,21 @@ let weather = {
         })
   }
 
-// ---------
-  // let News={
-  //   NewsKey: "2e17dffe5e274272a9cd25a881f7ce29",
-  //   NewsApi: `https://newsapi.org/v2/top-headlines?category=${cat}&apiKey=${NewsKey}`,
+  document.getElementById("button-add").addEventListener("click", function(){
+    fetchNews();
+  });
 
-  //   fetchNews: function(){
-  //     fetch(NewsApi)
-  //     .then((res) =>  res.json())
-  //     .then(data => {
-  //       console.log(data.articles)
-  //       document.getElementById("news").innerHTML= data.articles.map(news => 
-  //         `
-  //         <div class="col-md-6 bg-section">
-  //         <div class="row g-1 rounded-3 overflow-hidden">
-  //           <div class="col d-flex flex-column">
-  //             <h6 class="author">${news.author}</h6>
-  //             <h2 class="title">${news.title}</h2>
-  //             <div class="pushed">${news.publishedAt}</div>
-  //             <p class="description">${news.description}</p>
-  //             <a href="#" class="read-more">${news.url}</a>
-  //           </div>
-    
-  //           <div class="col-auto ">
-  //           <img src="${news.urlToImage}" class="img-thumbnail" alt="...">
-  //           </div>
-  //         </div>
-  //       </div>
-  //         `).json('')
-  //     });
-      
-  //   },
-
-  //   search_News: function () {
-  //     this.fetchNews(document.querySelector(".search-btn").value);
-  //   },
-
-  // }
+  document.querySelector(".btn-news").addEventListener("click", function () {
+    fetchNews();
+  });
+  
+  document.querySelector("button-add")
+    addEventListener("keyup", function (event) {
+      if (event.key == "Enter") {
+        fetchNews();
+      }
+    });
+  
 
 fetchNews();
 
