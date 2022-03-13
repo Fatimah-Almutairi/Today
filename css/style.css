@@ -29,6 +29,16 @@
 .row-time{
     font-family: 'Nanum Myeongjo', serif;
 }
+.nav-item .nav-link{
+  color: #d6d6d6;
+}
+.nav-item .nav-link.active,
+.nav-item .nav-link:focus,
+.nav-item .nav-link:hover{
+  
+  color: #BA6F4D;
+
+}
 /* .col-md-6{
   border: 2px solid #d6d6d6;
 
