@@ -162,6 +162,7 @@ function topBtn() {
   
 var prev = document.getElementById('prev');
 var next = document.getElementById('next');
+let page= 1;
 
 document.querySelector("#prev").addEventListener("click", function(){
   if(page == 1){
